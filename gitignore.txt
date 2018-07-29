@@ -1,0 +1,10 @@
+*.pyc
+__pycache__
+env
+db.sqlite3
+.idea
+media
+confidential.py
+desktop.ini
+.DS_Store
+.env

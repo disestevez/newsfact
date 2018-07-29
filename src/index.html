@@ -1,0 +1,246 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/css/uikit.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit.min.js"></script>
+  <title>NewsFact</title>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+</head>
+
+<body>
+<div id="feed">
+  <div class="uk-offcanvas-content">
+    <div class="uk-navbar-container uk-dark navbar-border uk-sticky uk-sticky-fixed" uk-sticky=""
+         style="position: fixed; top: 0px; width: 1680px;">
+      <div class="uk-container">
+        <nav class="uk-navbar">
+          <div class="uk-navbar-left">
+            <a href="/" class="uk-navbar-item uk-logo">News<strong>Fact</strong></a>
+            <ul class="uk-navbar-nav">
+              <li>
+                <a id="see-publish"><span uk-icon="icon: pencil" class="uk-margin-small-right"></span>Publish</a>
+              </li>
+            </ul>
+          </div>
+          <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+              <li>
+                <a id="see-profile" title="Profile"><span uk-icon="icon: user" class="uk-margin-small-right"></span>Profile
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="uk-section uk-section-small">
+      <div class="uk-container uk-container-large">
+        <h1 class="uk-heading-divider"><a class="uk-link-reset"><span
+            class="uk-visible@m">📰 Recently published news</span></a></h1>
+        <div class="uk-grid-large uk-padding-small uk-text-center profile-articles news-grid" uk-grid></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="publish" style="display: none">
+  <div class="uk-offcanvas-content">
+    <div>
+      <div class="uk-navbar-container uk-sticky-fixed uk-active uk-dark"
+           uk-sticky="cls-inactive: uk-navbar-transparent; cls-active: navbar-border; bottom: true; top: 100; animation: uk-animation-slide-top;">
+        <div class="uk-container">
+          <nav class="uk-navbar">
+            <div class="uk-navbar-left">
+              <a href="/" class="uk-navbar-item uk-logo">News<strong>Fact</strong></a>
+              <ul class="uk-navbar-nav">
+                <li>
+                  <a id="see-publish"><span uk-icon="icon: pencil" class="uk-margin-small-right"></span>Publish</a>
+                </li>
+              </ul>
+            </div>
+            <div class="uk-navbar-right">
+              <ul class="uk-navbar-nav">
+                <li>
+                  <a id="see-profile" title="Profile"><span uk-icon="icon: user" class="uk-margin-small-right"></span>Profile
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="uk-section uk-section-xlarge">
+      <div class="uk-container uk-container-small">
+        <h1 class="uk-text-center uk-margin-medium uk-text-bold">📰 Truth Check your Article</h1>
+        <form enctype="multipart/form-data" id="publish-form" class="uk-grid-small uk-form-stacked uk-grid" uk-grid="">
+          <div class="uk-width-1-1 uk-first-column">
+            <div class="uk-inline" style="width:100%">
+              <span class="uk-form-icon" uk-icon="icon: bookmark"></span>
+              <input type="text" name="title" id="form_title" maxlength="140" placeholder="Your Title"
+                     class="uk-input uk-form-large" required="">
+            </div>
+          </div>
+          <div class="uk-width-1-1">
+            <div class="uk-inline" style="width:100%">
+              <span class="uk-form-icon" uk-icon="icon: link"></span>
+              <input type="text" name="link" id="form_link" maxlength="140" placeholder="Link of the Article"
+                     class="uk-input uk-form-large uk-placeholder" required="">
+            </div>
+          </div>
+          <div class="uk-margin-top uk-width-1-1 uk-grid-margin uk-first-column">
+            <a class="primaryAction uk-button uk-button-primary uk-width-1-1 uk-button-large btn-adopt"
+               id="publish_article">Share Article »
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="profile" style="display: none">
+  <div class="uk-offcanvas-content">
+    <div class="uk-position-top" style="">
+      <div class="uk-navbar-container uk-position-fixed uk-sticky uk-active"
+           uk-sticky="cls-inactive: uk-navbar-transparent uk-light; cls-active: uk-dark navbar-border; bottom: true; top: 100; animation: uk-animation-slide-top;">
+        <div class="uk-container">
+          <nav class="uk-navbar">
+            <div class="uk-navbar-left">
+              <a href="/" class="uk-navbar-item uk-logo">News<strong>Fact</strong></a>
+              <ul class="uk-navbar-nav">
+                <li>
+                  <a id="see-publish"><span uk-icon="icon: pencil" class="uk-margin-small-right"></span>Publish</a>
+                </li>
+              </ul>
+            </div>
+            <div class="uk-navbar-right">
+              <ul class="uk-navbar-nav">
+                <li>
+                  <a href="/me" title="Profile"><span uk-icon="icon: user" class="uk-margin-small-right"></span>Profile
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div
+        class="uk-section uk-section-media uk-section-small uk-light uk-background-cover uk-overflow-hidden uk-background-secondary"
+        style="background-image: url('https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/37378837_232607590894557_7343757759575228416_o.jpg?_nc_cat=0&oh=d9c46148d0efcaf5443d1244b8470a1e&oe=5BCE2D20'); background-position-y: calc(0px); -webkit-filter: blur(5px); filter: blur(5px);"
+        uk-parallax="bgy: -200" id="header">
+      <div class="uk-container" style="position: relative;">
+        <div class="uk-text-center uk-margin-large-top">
+          <img class="uk-border-circle uk-box-shadow-hover-medium"
+               style="height:150px !important;width:150px !important;object-fit:cover;-webkit-filter:drop-shadow(2px 2px 5px black);
+                 filter: drop-shadow(2px 2px 5px black);" src="https://api.adorable.io/avatars/285/abott@adorable.png">
+        </div>
+        <div class="text-shadow uk-text-center" style="font-family: 'OpenSans', sans-serif;-webkit-filter:drop-shadow(2px 2px 5px black);
+                 filter: drop-shadow(2px 2px 5px black);">
+          <h3 class="uk-margin-remove-bottom uk-text-break uk-heading-primary"> Diego Estevez</h3>
+          <h4 class="uk-margin-small uk-text-break get_email">💬 disestevez@gmail.com</h4>
+          <h2 class="uk-margin-small uk-text-nowrap get_reputation uk-text-lead uk-text-bold">💮 93% Reputation</h2>
+        </div>
+      </div>
+    </div>
+    <div class="uk-section uk-margin-large-bottom uk-padding-remove uk-section-muted" id="content">
+      <div class="uk-grid-large uk-padding-small uk-text-center profile-articles news-grid" uk-grid>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="uk-hidden article">
+  <div class="uk-width-1-3">
+    <div class="uk-card uk-card-small uk-box-shadow-small uk-card-default">
+      <div class="uk-card-body">
+        <a data-id="522706ba-2fb0-4a0e-b78d-ce76833a4d02"
+                                   href="" class="news-card link"
+                                   style="text-decoration:none;color:#333">
+        <h2 class="uk-margin-remove title"><span class="uk-margin-small-right"><strong>INSIDE THE TWO YEARS THAT SHOOK FACEBOOK—AND THE WORLD</strong></span>
+        </h2>
+      </a>
+        <p class="uk-margin-remove-top reputation uk-text-success quality">Reputation of 92%</p>
+        <a class="primaryAction uk-button uk-button-default uk-button-small" href="#modal-badge" data-id="#" uk-toggle>Get Badge</a>
+          <a class="primaryAction uk-button uk-button-primary uk-button-small vote-positive" data-id="" href="">Good
+            Quality        <span class="holder uk-hidden" data-id></span></a><a class="primaryAction uk-button uk-button-danger uk-button-small vote-negative" data-id="#">Bad Quality <span class="holder uk-hidden" data-id></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="modal-badge" uk-modal>
+    <div class="uk-modal-dialog">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <div class="uk-modal-header">f
+            <h2 class="uk-modal-title">Your Quality Badge</h2>
+        </div>
+
+        <div class="uk-modal-body" uk-overflow-auto>
+
+          <p>This is a great way to show your readers that your article is trustworthy and verified by the community</p>
+          <div uk-grid class="uk-grid-small">
+            <div class="uk-width-1-2">
+                          <div class="uk-card uk-card-default uk-width-1-1">
+                <div class="uk-card-header">
+                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                        <div class="uk-width-expand">
+                            <h3 class="uk-card-title uk-margin-remove-bottom uk-text-bold uk-text-nowrap">🔎 Quality Score</h3>
+                            <p class="uk-text-meta uk-margin-remove-top uk-text-small">RSA256: B221D9D...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-card-body uk-text-center">
+                    <h1 class="uk-text-center uk-text-bold">105 Rep. Points</h1>
+                </div>
+                <div class="uk-card-footer uk-text-center"><a href="#" class="uk-button uk-button-text uk-text-center">Read more</a>
+                </div>
+            </div>
+            </div>
+            <div class="uk-width-1-2 uk-height-small">
+              <pre><code class="lang-html hljs xml">
+      <'div class="uk-card uk-card-default uk-width-1-1">
+      <'div class="uk-card-header">
+          <'div class="uk-grid-small uk-flex-middle" uk-grid>
+              <'div class="uk-width-expand">
+                  <'h3 class="uk-card-title uk-margin-remove-bottom">Quality Score</h3>
+                  <'p class="uk-text-meta uk-margin-remove-top uk-text-small">RSA256: B221D9DBB08....</p>
+              <'/div>
+          <'/div>
+      <'/div>
+      <'div class="uk-card-body">
+          <'h1>75%</h1>
+      <'/div>
+      <'div class="uk-card-footer">
+<'a class="primaryAction uk-button uk-button-primary uk-button-small vote-good" data-id="#">Good
+  Quality<'/a><'a class="primaryAction uk-button uk-button-danger uk-button-small vote-bad" data-id="#">Bad Quality</a>
+      <'/div>
+  <'/div>
+              </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-primary uk-modal-close" type="button">Continue</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/web3.min.js"></script>
+<script src="js/truffle-contract.js"></script>
+<script src="js/app.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit-icons.min.js"></script>
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+</body>
+</html>
